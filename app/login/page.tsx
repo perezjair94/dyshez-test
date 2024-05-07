@@ -1,6 +1,7 @@
 import Logo from '@/app/ui/logo';
 import LoginForm from '@/app/ui/login-form';
 import { AppleLogo, FacebookLogo, GoogleLogo } from '@/app/ui/social-logos';
+import Image from 'next/image';
 
 export default function Page() {
   return (
@@ -39,6 +40,9 @@ export default function Page() {
                 <FacebookLogo />
               </div>
             </div>
+          </div>
+          <div className="relative flex h-[100%] w-full items-center justify-center">
+            <Image src="/cover-login.png" alt="cover" fill />
           </div>
         </aside>
       </div>
