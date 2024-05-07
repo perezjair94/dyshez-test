@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 import './ui/globals.css';
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-});
+import { hauora } from './ui/fonts';
 
 export const metadata: Metadata = {
   title: 'Dyshez',
@@ -19,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={`${hauora.variable} font-poppins min-h-dvh`}>
+        {children}
+      </body>
     </html>
   );
 }

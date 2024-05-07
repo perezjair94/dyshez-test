@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['var(--font-poppins)'],
+        hauora: ['var(--font-hauora)'],
+      },
       colors: {
         'dogwoose-rose': '#E3026F',
         night: '#0C0C0C',
