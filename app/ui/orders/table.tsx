@@ -1,6 +1,7 @@
 import { Order } from '@/app/lib/definitions';
 import { TableCell, TableHead, TableRow } from '@/app/ui/table';
 import PaymentStatus from './payment-status';
+import Pagination from '@/app/ui/pagintaion';
 
 function Header() {
   return (
@@ -23,7 +24,7 @@ function Header() {
 
 export default function Table({ orders }: { orders: Order[] }) {
   return (
-    <div className="overflow-visible rounded-[12px] shadow-[0px_8px_28px_0px_#0000001A]">
+    <div className="rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
       <Header />
       <table className="table min-w-full">
         <thead>
@@ -55,6 +56,7 @@ export default function Table({ orders }: { orders: Order[] }) {
           ))}
         </tbody>
       </table>
+      <Pagination />
     </div>
   );
 }
