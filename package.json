@@ -11,6 +11,8 @@
     "prettier:check": "prettier --check --ignore-unknown ."
   },
   "dependencies": {
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.1",
     "clsx": "^2.1.1",
     "next": "14.2.3",
     "react": "^18",
