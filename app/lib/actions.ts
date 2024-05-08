@@ -20,7 +20,7 @@ export async function authenticate(
     return 'Credenciales incorrectas';
   }
 
-  return redirect('/protected');
+  return redirect('orders');
 }
 
 export async function logout() {
