@@ -23,7 +23,7 @@ export default function Page() {
                 Register
               </span>
             </div>
-            <p className="font-hauora max-w-[20rem] text-center text-[1rem] font-semibold leading-[25px]">
+            <p className="max-w-[20rem] text-center font-hauora text-[1rem] font-semibold leading-[25px]">
               Ingresa con tu correo electrónico o tu número de teléfono
             </p>
             <div className="mt-auto">
