@@ -8,3 +8,10 @@ export type Order = {
   payment_method: string;
   status: string;
 };
+
+export type Picture = {
+  id: number;
+  name: string;
+  url: string;
+  created_at: string;
+};
