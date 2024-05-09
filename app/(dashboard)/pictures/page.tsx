@@ -7,7 +7,7 @@ import UploadForm from '@/app/ui/pictures/upload-form';
 export default async function Pictures() {
   const pictures = await fetchPictures();
   return (
-    <div className="flex-1 p-[20px] px-[40px]">
+    <div className="p-[20px] px-[40px]">
       <h1 className="mb-[21px] text-[1.5rem] font-bold">Pictures</h1>
       <div className="grid h-full w-full grid-cols-12">
         <div className="col-span-7">
@@ -16,7 +16,7 @@ export default async function Pictures() {
             <Cards pictures={pictures as PictureField[]} />
           </div>
         </div>
-        <div className="col-span-5 row-span-12 bg-night/5 p-[20px]">
+        <div className="col-span-5 h-screen bg-night/5 p-[20px]">
           <PreviewPicture />
         </div>
       </div>
