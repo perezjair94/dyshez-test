@@ -56,7 +56,7 @@ export async function deletePicture(id: string) {
 }
 
 export async function authenticate(
-  prevState: string | undefined,
+  prevState: { message?: string; sucess?: boolean } | undefined,
   formData: FormData,
 ) {
   const email = formData.get('email') as string;
@@ -68,11 +68,12 @@ export async function authenticate(
     password,
   });
 
-  if (error) {
-    return 'Credenciales incorrectas';
-  }
+  if (error) return { success: false, message: 'Credenciales incorrectas' };
 
-  return redirect('orders');
+  return {
+    success: true,
+    message: 'Inicio de sesión correctamente',
+  };
 }
 
 export async function logout() {
