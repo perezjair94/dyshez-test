@@ -2,6 +2,7 @@ import Logo from '@/app/ui/logo';
 import LoginForm from '@/app/ui/login-form';
 import { AppleLogo, FacebookLogo, GoogleLogo } from '@/app/ui/social-logos';
 import Image from 'next/image';
+import { LoginWithGoogle } from '../ui/social-auth';
 
 export default function Page() {
   return (
@@ -33,9 +34,8 @@ export default function Page() {
               <div className="flex items-center justify-center rounded-full bg-night/5 p-[14px]">
                 <AppleLogo />
               </div>
-              <div className="flex items-center justify-center rounded-full bg-night/5 p-[14px]">
-                <GoogleLogo />
-              </div>
+              <LoginWithGoogle />
+
               <div className="flex items-center justify-center rounded-full bg-night/5 p-[14px]">
                 <FacebookLogo />
               </div>
