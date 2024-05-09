@@ -9,7 +9,7 @@ export default function PreviewPicture() {
   const url = searchParams.get('preview_url') as string;
   if (!name || !url) return null;
   return (
-    <div className="flex h-[100%] w-[100%] flex-col items-center justify-center gap-[32px]">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-[32px]">
       <div>
         <h2 className="mb-[6px] text-center font-hauora text-[14px] font-bold">
           Preview 1:1
