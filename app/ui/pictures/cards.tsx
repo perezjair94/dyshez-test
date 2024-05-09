@@ -18,14 +18,15 @@ export default function Cards({ pictures }: { pictures: PictureField[] }) {
 
 function ImageCard({ name, url }: PictureField) {
   const searchParams = useSearchParams();
-  const source = searchParams.get('source');
+  const source = searchParams.get('name');
+  const isActive = source === name;
   return (
-    <Link href={`/pictures?source=${name}`}>
+    <Link href={`/pictures?name=${name}&preview_url=${url}`}>
       <div
         className={clsx(
           'group relative h-[124px] w-[124px] cursor-pointer overflow-hidden rounded-[8px] bg-night/5',
           {
-            'border-[6px] border-solid border-dogwoose-rose': name === source, // active,
+            'border-[6px] border-solid border-dogwoose-rose': isActive, // active,
           },
         )}
       >
