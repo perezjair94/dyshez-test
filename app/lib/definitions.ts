@@ -16,3 +16,8 @@ export type Picture = {
   object_id: string;
   created_at: string;
 };
+
+export type PictureField = {
+  name: string;
+  url: string;
+};
