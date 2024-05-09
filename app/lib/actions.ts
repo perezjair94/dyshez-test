@@ -3,6 +3,33 @@
 import { redirect } from 'next/navigation';
 import { createClient } from './supabase/server';
 
+export async function uploadPicture(formData: FormData) {
+  const file = formData.get('file') as File;
+  const timestamp = new Date().toISOString();
+
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect('/login');
+  }
+
+  const { data, error } = await supabase.storage
+    .from('pictures')
+    .upload(`${user.id}/${timestamp}`, file, {
+      cacheControl: 'public, max-age=31536000',
+    });
+
+  if (error) {
+    return 'Error al subir la imagen';
+  }
+
+  return redirect('pictures');
+}
+
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,

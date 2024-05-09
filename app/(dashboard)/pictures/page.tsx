@@ -1,6 +1,7 @@
 import { Picture } from '@/app/lib/definitions';
 import { createClient } from '@/app/lib/supabase/server';
 import Cards from '@/app/ui/pictures/cards';
+import UploadForm from '@/app/ui/pictures/upload-form';
 
 export default async function Pictures() {
   const supabase = createClient();
@@ -14,23 +15,7 @@ export default async function Pictures() {
       <div className="grid h-full w-full grid-cols-12 grid-rows-12">
         <div className="col-span-7">
           <div className="flex flex-wrap gap-[12px] gap-y-[20px]">
-            <div className="flex h-[124px] w-[124px] cursor-pointer items-center justify-center rounded-[8px] border border-night/40 bg-white text-[#808080] transition-all hover:bg-night/5 hover:shadow-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-plus"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5v14" />
-              </svg>
-            </div>
+            <UploadForm />
             <Cards pictures={pictures as Picture[]} />
           </div>
         </div>
