@@ -14,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hauora.variable} font-poppins min-h-dvh`}>
-        {children}
-      </body>
+      <body className={`${hauora.variable} font-poppins`}>{children}</body>
     </html>
   );
 }

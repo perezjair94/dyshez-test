@@ -2,9 +2,9 @@ import NavLinks from './nav-links';
 
 export default function Sidenav() {
   return (
-    <div className="border-r  border-night/10 py-[20px]">
+    <div className="sticky top-0 h-screen w-[56px] border-r border-night/10 bg-white py-[20px]">
       <div className="mx-auto mb-[40px] h-[40px] w-[40px] rounded-full bg-dogwoose-rose" />
-      <nav className="h-screen w-[56px]">
+      <nav className="w-[56px]">
         <NavLinks />
       </nav>
     </div>
