@@ -4,11 +4,24 @@ import { useFormState, useFormStatus } from 'react-dom';
 import Input from './input';
 import { authenticate } from '@/app/lib/actions';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const initialState = {
+    message: '',
+    success: false,
+  };
+  const routier = useRouter();
+  const [state, dispatch] = useFormState(authenticate, initialState);
 
-  if (errorMessage) toast.error(errorMessage);
+  if (state?.success) {
+    toast.success(state.message);
+    setTimeout(() => {
+      routier.push('/orders');
+    }, 1000);
+  } else if (state?.message) {
+    toast.error(state.message);
+  }
 
   return (
     <form action={dispatch}>
