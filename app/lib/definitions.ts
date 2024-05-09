@@ -10,8 +10,9 @@ export type Order = {
 };
 
 export type Picture = {
-  id: number;
+  id: string;
   name: string;
-  url: string;
+  user_id: string;
+  object_id: string;
   created_at: string;
 };

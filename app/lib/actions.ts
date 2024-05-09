@@ -19,7 +19,7 @@ export async function uploadPicture(formData: FormData) {
 
   const { data, error } = await supabase.storage
     .from('pictures')
-    .upload(`${user.id}/${timestamp}`, file, {
+    .upload(`${user.id}/${timestamp}.${file.name.split('.').pop()}`, file, {
       cacheControl: 'public, max-age=31536000',
     });
 
