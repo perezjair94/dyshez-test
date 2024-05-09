@@ -1,6 +1,5 @@
 import { fetchPictures } from '@/app/lib/data';
 import { PictureField } from '@/app/lib/definitions';
-import { getPhotoUrls } from '@/app/lib/utils';
 import Cards from '@/app/ui/pictures/cards';
 import UploadForm from '@/app/ui/pictures/upload-form';
 
