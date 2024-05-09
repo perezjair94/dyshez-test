@@ -30,6 +30,31 @@ export async function uploadPicture(formData: FormData) {
   return redirect('pictures');
 }
 
+export async function deletePicture(id: string) {
+  const supabase = createClient();
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return redirect('/login');
+    }
+
+    const { error } = await supabase.storage
+      .from('pictures')
+      .remove([`${user.id}/${id}`]);
+
+    if (error) {
+      return 'Error al eliminar la imagen';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  return redirect('/pictures');
+}
+
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
