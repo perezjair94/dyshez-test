@@ -9,14 +9,14 @@ export default async function Pictures() {
   return (
     <div className="p-[20px] px-[40px]">
       <h1 className="mb-[21px] text-[1.5rem] font-bold">Pictures</h1>
-      <div className="grid h-full w-full grid-cols-12">
+      <div className="grid h-screen w-full grid-cols-12">
         <div className="col-span-7">
           <div className="flex flex-wrap gap-[12px] gap-y-[20px]">
             <UploadForm />
             <Cards pictures={pictures as PictureField[]} />
           </div>
         </div>
-        <div className="col-span-5 h-screen bg-night/5 p-[20px]">
+        <div className="col-span-5 bg-night/5 p-[20px]">
           <PreviewPicture />
         </div>
       </div>
