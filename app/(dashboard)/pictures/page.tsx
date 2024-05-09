@@ -1,6 +1,7 @@
 import { fetchPictures } from '@/app/lib/data';
 import { PictureField } from '@/app/lib/definitions';
 import Cards from '@/app/ui/pictures/cards';
+import PreviewPicture from '@/app/ui/pictures/preview-picture';
 import UploadForm from '@/app/ui/pictures/upload-form';
 
 export default async function Pictures() {
@@ -15,7 +16,9 @@ export default async function Pictures() {
             <Cards pictures={pictures as PictureField[]} />
           </div>
         </div>
-        <div className="col-span-5 row-span-12 bg-night/5">Imagen</div>
+        <div className="col-span-5 bg-night/5 p-[20px]">
+          <PreviewPicture />
+        </div>
       </div>
     </div>
   );
