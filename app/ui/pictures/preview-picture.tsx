@@ -7,7 +7,6 @@ export default function PreviewPicture() {
   const searchParams = useSearchParams();
   const name = searchParams.get('name') as string;
   const url = searchParams.get('preview_url') as string;
-  console.log(name, url);
   if (!name || !url) return null;
   return (
     <div className="flex h-[100%] w-[100%] flex-col items-center justify-center gap-[32px]">
