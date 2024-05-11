@@ -3,10 +3,22 @@ import { createClient } from '@/app/lib/supabase/server';
 import Table from '@/app/ui/orders/table';
 import { redirect } from 'next/navigation';
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: { status: string };
+}) {
   const supabase = createClient();
 
-  const { data: orders } = await supabase.from('orders').select();
+  const { data: orders } = await supabase
+    .from('orders')
+    .select('*')
+    .in(
+      'status',
+      searchParams.status === 'All'
+        ? ['Accepted', 'Rejected']
+        : [searchParams.status],
+    );
 
   const {
     data: { user },

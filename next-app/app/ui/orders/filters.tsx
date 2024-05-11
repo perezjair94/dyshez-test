@@ -27,9 +27,9 @@ export default function FilterByStatus() {
     <div className="flex items-center gap-[24px] px-[24px] py-[27px]">
       <h2 className="text-[1.125rem] font-semibold">Number of orders</h2>
       <div className="flex items-center gap-[10px]">
-        <FilterItem query="all">All</FilterItem>
-        <FilterItem query="accepted">Accepted(4)</FilterItem>
-        <FilterItem query="rejected">Rejected (3)</FilterItem>
+        <FilterItem query="All">All</FilterItem>
+        <FilterItem query="Accepted">Accepted(4)</FilterItem>
+        <FilterItem query="Rejected">Rejected (3)</FilterItem>
       </div>
     </div>
   );
