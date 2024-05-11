@@ -3,21 +3,38 @@ import { TableCell, TableHead, TableRow } from '@/app/ui/table';
 import PaymentStatus from './payment-status';
 import Pagination from '@/app/ui/pagintaion';
 import FilterByStatus from './filters';
+import OrderButton from './order-button';
 
 export default function Table({ orders }: { orders: Order[] }) {
   return (
-    <div className="rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
+    <div className="relative w-[82.5rem] overflow-x-auto rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
       <FilterByStatus />
-      <table className="table min-w-full">
+      <table className="table w-full min-w-[82.5rem]">
         <thead>
           <TableRow className="border-t">
-            <TableHead>Order ID</TableHead>
-            <TableHead>Customer</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Time</TableHead>
-            <TableHead>Mode</TableHead>
-            <TableHead>Total</TableHead>
-            <TableHead>Payment Method</TableHead>
+            <TableHead>
+              Order ID <OrderButton id="id" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead className="w-[19.375rem]">
+              Customer
+              <OrderButton id="customer" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Date <OrderButton id="date" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Time <OrderButton id="time" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Mode <OrderButton id="mode" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Total <OrderButton id="total" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead className="w-[19.375rem]">
+              Payment Method
+              <OrderButton id="payment_method" className="ml-2 align-middle" />
+            </TableHead>
             <TableHead>Status</TableHead>
           </TableRow>
         </thead>

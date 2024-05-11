@@ -4,29 +4,26 @@ import Table from '@/app/ui/orders/table';
 import { redirect } from 'next/navigation';
 
 export default async function Page({
-  searchParams,
+  searchParams: { order = 'id:ASC', status = 'All' },
 }: {
-  searchParams: { status: string };
+  searchParams: { order: string; status: string };
 }) {
   const supabase = createClient();
+
+  const orderID = order.split(':')[0];
+  const orderDirection = order.split(':')[1];
 
   const { data: orders } = await supabase
     .from('orders')
     .select('*')
-    .in(
-      'status',
-      searchParams.status === 'All'
-        ? ['Accepted', 'Rejected']
-        : [searchParams.status],
-    );
+    .in('status', status === 'All' ? ['Accepted', 'Rejected'] : [status])
+    .order(orderID, { ascending: orderDirection === 'ASC' });
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    return redirect('/login');
-  }
+  if (!user) return redirect('/login');
 
   return (
     <div className="p-[20px] px-[32px]">

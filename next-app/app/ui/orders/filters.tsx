@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 
 function FilterItem({ query, children }: { query: string; children: string }) {
   const searchParams = useSearchParams();
-  const status = searchParams.get('status');
+  const status = searchParams.get('status') || 'All';
   return (
     <Link
       href={`/orders?status=${query}`}
