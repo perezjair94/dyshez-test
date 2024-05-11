@@ -2,12 +2,12 @@ import { Order } from '@/app/lib/definitions';
 import { TableCell, TableHead, TableRow } from '@/app/ui/table';
 import PaymentStatus from './payment-status';
 import Pagination from '@/app/ui/pagintaion';
-import StatusFilter from './filters';
+import FilterByStatus from './filters';
 
 export default function Table({ orders }: { orders: Order[] }) {
   return (
     <div className="rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
-      <StatusFilter />
+      <FilterByStatus />
       <table className="table min-w-full">
         <thead>
           <TableRow className="border-t">

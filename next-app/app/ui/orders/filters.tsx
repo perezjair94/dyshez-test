@@ -22,7 +22,7 @@ function FilterItem({ query, children }: { query: string; children: string }) {
   );
 }
 
-export default function StatusFilter() {
+export default function FilterByStatus() {
   return (
     <div className="flex items-center gap-[24px] px-[24px] py-[27px]">
       <h2 className="text-[1.125rem] font-semibold">Number of orders</h2>
