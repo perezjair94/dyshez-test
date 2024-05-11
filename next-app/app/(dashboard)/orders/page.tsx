@@ -1,14 +1,16 @@
 import { Order } from '@/app/lib/definitions';
 import { createClient } from '@/app/lib/supabase/server';
+import { getPagination } from '@/app/lib/utils';
 import Table from '@/app/ui/orders/table';
 import { redirect } from 'next/navigation';
 
 export default async function Page({
-  searchParams: { order = 'id:ASC', status = 'All' },
+  searchParams: { order = 'id:ASC', status = 'All', page = '1' },
 }: {
-  searchParams: { order: string; status: string };
+  searchParams: { order: string; status: string; page: string };
 }) {
   const supabase = createClient();
+  const { from, to } = getPagination(Number(page) - 1, 10);
 
   const orderID = order.split(':')[0];
   const orderDirection = order.split(':')[1];
@@ -16,6 +18,8 @@ export default async function Page({
   const { data: orders } = await supabase
     .from('orders')
     .select('*')
+    .limit(10)
+    .range(from, to)
     .in('status', status === 'All' ? ['Accepted', 'Rejected'] : [status])
     .order(orderID, { ascending: orderDirection === 'ASC' });
 

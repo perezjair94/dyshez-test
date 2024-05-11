@@ -18,3 +18,15 @@ export async function getPhotoUrls(
     }),
   );
 }
+
+export function getPagination(page: number, size: number) {
+  const limit = size ? +size : 3;
+  const from = page ? page * limit : 0;
+  const to = page ? from + size : size;
+
+  return { from, to };
+}
+
+export function getTotalPages(total: number, size: number) {
+  return Math.ceil(total / size) || 1;
+}

@@ -4,8 +4,10 @@ import PaymentStatus from './payment-status';
 import Pagination from '@/app/ui/pagintaion';
 import FilterByStatus from './filters';
 import OrderButton from './order-button';
+import { getTotalPages } from '@/app/lib/utils';
 
 export default function Table({ orders }: { orders: Order[] }) {
+  const totalPages = getTotalPages(orders.length, 10);
   return (
     <div className="relative w-[82.5rem] overflow-x-auto rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
       <FilterByStatus />
@@ -55,7 +57,7 @@ export default function Table({ orders }: { orders: Order[] }) {
           ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination totalPages={totalPages} />
     </div>
   );
 }
