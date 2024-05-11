@@ -2,30 +2,12 @@ import { Order } from '@/app/lib/definitions';
 import { TableCell, TableHead, TableRow } from '@/app/ui/table';
 import PaymentStatus from './payment-status';
 import Pagination from '@/app/ui/pagintaion';
-
-function Header() {
-  return (
-    <div className="flex items-center gap-[24px] px-[24px] py-[27px]">
-      <h2 className="text-[1.125rem] font-semibold">Number of orders</h2>
-      <div className="flex items-center gap-[10px]">
-        <a className="ml-[8px] block rounded-full border border-dogwoose-rose p-[12px] px-[16px] font-hauora text-[14px] font-bold text-dogwoose-rose">
-          All
-        </a>
-        <a className="px-[16px ml-[8px] rounded-full border border-night/50 p-[12px] font-hauora text-[14px] font-bold text-night/50">
-          Accepted(4)
-        </a>
-        <a className="px-[16px ml-[8px] rounded-full border border-night/50 p-[12px] font-hauora text-[14px] font-bold text-night/50">
-          Rejected (3)
-        </a>
-      </div>
-    </div>
-  );
-}
+import StatusFilter from './filters';
 
 export default function Table({ orders }: { orders: Order[] }) {
   return (
     <div className="rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
-      <Header />
+      <StatusFilter />
       <table className="table min-w-full">
         <thead>
           <TableRow className="border-t">
