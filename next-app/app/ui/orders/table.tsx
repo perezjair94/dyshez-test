@@ -2,40 +2,41 @@ import { Order } from '@/app/lib/definitions';
 import { TableCell, TableHead, TableRow } from '@/app/ui/table';
 import PaymentStatus from './payment-status';
 import Pagination from '@/app/ui/pagintaion';
-
-function Header() {
-  return (
-    <div className="flex items-center gap-[24px] px-[24px] py-[27px]">
-      <h2 className="text-[1.125rem] font-semibold">Number of orders</h2>
-      <div className="flex items-center gap-[10px]">
-        <a className="ml-[8px] block rounded-full border border-dogwoose-rose p-[12px] px-[16px] font-hauora text-[14px] font-bold text-dogwoose-rose">
-          All
-        </a>
-        <a className="px-[16px ml-[8px] rounded-full border border-night/50 p-[12px] font-hauora text-[14px] font-bold text-night/50">
-          Accepted(4)
-        </a>
-        <a className="px-[16px ml-[8px] rounded-full border border-night/50 p-[12px] font-hauora text-[14px] font-bold text-night/50">
-          Rejected (3)
-        </a>
-      </div>
-    </div>
-  );
-}
+import FilterByStatus from './filters';
+import OrderButton from './order-button';
+import { getTotalPages } from '@/app/lib/utils';
 
 export default function Table({ orders }: { orders: Order[] }) {
+  const totalPages = getTotalPages(orders.length, 10);
   return (
-    <div className="rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
-      <Header />
-      <table className="table min-w-full">
+    <div className="relative w-[82.5rem] overflow-x-auto rounded-[12px] pb-[20px] shadow-[0px_8px_28px_0px_#0000001A]">
+      <FilterByStatus />
+      <table className="table w-full min-w-[82.5rem]">
         <thead>
           <TableRow className="border-t">
-            <TableHead>Order ID</TableHead>
-            <TableHead>Customer</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Time</TableHead>
-            <TableHead>Mode</TableHead>
-            <TableHead>Total</TableHead>
-            <TableHead>Payment Method</TableHead>
+            <TableHead>
+              Order ID <OrderButton id="id" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead className="w-[19.375rem]">
+              Customer
+              <OrderButton id="customer" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Date <OrderButton id="date" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Time <OrderButton id="time" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Mode <OrderButton id="mode" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead>
+              Total <OrderButton id="total" className="ml-2 align-middle" />
+            </TableHead>
+            <TableHead className="w-[19.375rem]">
+              Payment Method
+              <OrderButton id="payment_method" className="ml-2 align-middle" />
+            </TableHead>
             <TableHead>Status</TableHead>
           </TableRow>
         </thead>
@@ -56,7 +57,7 @@ export default function Table({ orders }: { orders: Order[] }) {
           ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination totalPages={totalPages} />
     </div>
   );
 }
