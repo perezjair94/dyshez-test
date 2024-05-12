@@ -3,11 +3,11 @@ import NavLinks from './nav-links';
 
 export default function Sidenav() {
   return (
-    <div className="sticky top-0 hidden h-screen w-[56px] border-r border-night/10 bg-white py-[20px] lg:inline-block">
-      <div className="mx-auto mb-[40px] h-[40px] w-[40px] rounded-full bg-dogwoose-rose/40">
-        <Image src="/avatar.png" width={40} height={40} alt="avatar" />
+    <div className="fixed bottom-0 z-50 flex h-[45px] w-full flex-row-reverse items-center justify-center border-t border-night/10 bg-white lg:sticky lg:top-0 lg:inline-block lg:h-screen lg:w-[56px] lg:border-r lg:border-t-0 lg:py-[20px]">
+      <div className="absolute right-2 h-[30px] w-[30px] rounded-full lg:relative lg:right-0 lg:mx-auto lg:mb-[40px] lg:h-[40px] lg:w-[40px]">
+        <Image src="/avatar.png" fill alt="avatar" />
       </div>
-      <nav className="w-[56px]">
+      <nav className="flex flex-1 justify-center gap-[10px] lg:block lg:w-[56px]">
         <NavLinks />
       </nav>
     </div>

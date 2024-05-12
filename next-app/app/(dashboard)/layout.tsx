@@ -4,7 +4,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="md:flex">
       <Sidenav />
-      <main className="md:flex-1">{children}</main>
+      <main className="mb-[50px] md:flex-1">{children}</main>
     </div>
   );
 }

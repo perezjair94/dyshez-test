@@ -63,7 +63,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'relative mb-[10px] flex items-center justify-center p-[10px]  transition-colors hover:text-dogwoose-rose',
+              'relative flex items-center justify-center transition-colors hover:text-dogwoose-rose  lg:mb-[10px] lg:p-[10px]',
 
               pathname === link.href
                 ? 'text-dogwoose-rose'
@@ -72,7 +72,7 @@ export default function NavLinks() {
           >
             <LinkIcon className="text-current" />
             {pathname === link.href && (
-              <div className="absolute left-0 top-[50%] h-[38px] w-[6px] -translate-y-1/2 transform rounded-br-[6px] rounded-tr-[6px] bg-dogwoose-rose" />
+              <div className="absolute -bottom-[26px] h-[38px] w-[6px] -rotate-90 transform rounded-br-[6px] rounded-tr-[6px] bg-dogwoose-rose lg:bottom-0 lg:left-0 lg:top-[50%] lg:-translate-y-1/2 lg:rotate-0" />
             )}
           </Link>
         );
