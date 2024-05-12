@@ -6,7 +6,7 @@ const TableHead = forwardRef<HTMLTableCellElement, ComponentProps<'th'>>(
     <th
       ref={ref}
       className={clsx(
-        'h-[44px] px-[24px] text-left text-[13px] font-semibold leading-[17px]',
+        'h-[44px] px-[24px] text-left text-[13px] font-semibold leading-[17px] tracking-wider',
         className,
       )}
       {...props}
@@ -37,7 +37,7 @@ const TableCell = forwardRef<HTMLTableCellElement, ComponentProps<'td'>>(
     <td
       ref={ref}
       className={clsx(
-        'h-[72px] px-[24px] text-[13px] leading-[17px] text-night/80',
+        'h-[72px] whitespace-nowrap px-[24px] text-[13px] leading-[17px] text-night/80',
         className,
       )}
       {...props}
