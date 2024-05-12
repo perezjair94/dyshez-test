@@ -18,8 +18,13 @@ export default async function Pictures() {
             </div>
           </div>
         </div>
-        <div className="col-span-12 overflow-auto bg-night/5 p-[20px] md:col-span-5">
-          <PreviewPicture />
+        <div className="col-span-12 md:col-span-5">
+          <h1 className="mb-[21px] text-[1.5rem] font-bold text-transparent">
+            Preview
+          </h1>
+          <div className=" overflow-auto bg-night/5 p-[20px]">
+            <PreviewPicture />
+          </div>
         </div>
       </div>
     </div>
