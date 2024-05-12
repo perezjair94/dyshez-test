@@ -22,7 +22,7 @@ export default async function Pictures() {
           <h1 className="mb-[21px] text-[1.5rem] font-bold text-transparent">
             Preview
           </h1>
-          <div className=" overflow-auto bg-night/5 p-[20px]">
+          <div className=" min-h-[400px] overflow-auto bg-night/5 p-[20px]">
             <PreviewPicture />
           </div>
         </div>
