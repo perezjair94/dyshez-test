@@ -25,7 +25,7 @@ function ImageCard({ name, url }: PictureField) {
     <Link href={`/pictures?name=${name}&preview_url=${url}`}>
       <div
         className={clsx(
-          'group relative h-[124px] w-[124px] cursor-pointer overflow-hidden rounded-[8px] bg-night/5',
+          'group relative row-span-1 h-[134px] w-full cursor-pointer overflow-hidden rounded-[8px] bg-night/5 md:h-[124px]',
           {
             'border-[6px] border-solid border-dogwoose-rose': isActive, // active,
           },

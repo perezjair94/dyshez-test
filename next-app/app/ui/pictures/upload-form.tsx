@@ -18,7 +18,7 @@ export default function UploadForm() {
 
   return (
     <label htmlFor="file">
-      <div className="flex h-[124px] w-[124px] cursor-pointer items-center justify-center rounded-[8px] border border-night/40 bg-white text-[#808080] transition-all hover:bg-night/5 hover:shadow-lg">
+      <div className="row-span-1 flex h-[134px] w-full cursor-pointer items-center justify-center rounded-[8px] border border-night/40 bg-white text-[#808080] transition-all hover:bg-night/5 hover:shadow-lg md:h-[124px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
