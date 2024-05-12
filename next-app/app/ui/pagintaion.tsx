@@ -35,7 +35,7 @@ function PaginationItem({ active, children, page }: PaginationItemProps) {
     <Link href={`/orders?page=${page}`}>
       <div
         className={clsx(
-          'flex h-[40px] w-[40px] items-center justify-center rounded-full border-2 font-hauora hover:text-dogwoose-rose',
+          'flex h-[30px] w-[30px] items-center justify-center rounded-full border-2 font-hauora hover:text-dogwoose-rose md:h-[40px] md:w-[40px]',
           active
             ? 'border-dogwoose-rose text-dogwoose-rose'
             : 'border-transparent text-night',
@@ -79,7 +79,6 @@ function PrevPageButton({ page }: PrevPageButtonProps) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="lucide lucide-chevron-left"
       >
         <path d="m15 18-6-6 6-6" />
       </svg>
@@ -120,7 +119,6 @@ function NextPageButton({ page, totalPages }: NextPageButtonProps) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="lucide lucide-chevron-right"
       >
         <path d="m9 6l6 6-6 6" />
       </svg>
